@@ -11,14 +11,17 @@ app = Flask(__name__)
 
 app.register_blueprint(app_views)
 
+
 def teardown_appcontext(exception):
     """Closes the storage on teardown."""
     storage.close()
+
 
 @app.errorhandler(404)
 def handler_404(error):
     """Handle 404 errors by returning a JSON-formatted response."""
     return jsonify({"error": "Not found"}), 404
+
 
 app.teardown_appcontext(teardown_appcontext)
 
