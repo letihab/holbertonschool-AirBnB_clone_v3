@@ -17,6 +17,7 @@ from models.user import User
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
 
+
 class FileStorage:
     """serializes instances to a JSON file & deserializes back to instances"""
 
@@ -81,6 +82,7 @@ class FileStorage:
     def count(self, cls=None):
         """Compter le nombre d'objets enregistrés"""
         if cls:
-            return sum(1 for key in self.__objects.keys() if key.startswith(cls.__name__))
+            return sum(1 for key in self.__objects.keys()
+                       if key.startswith(cls.__name__))
         else:
             return len(self.__objects)
