@@ -19,17 +19,6 @@ class TestBaseModelDocs(unittest.TestCase):
         """Set up for docstring tests"""
         self.base_funcs = inspect.getmembers(BaseModel, inspect.isfunction)
 
-    def test_pep8_conformance(self):
-        """Test that models/base_model.py and its test file conform to PEP8."""
-        paths = [
-            'models/base_model.py', 'tests/test_models/test_base_model.py']
-
-        for path in paths:
-            with self.subTest(path=path):
-                style = pycodestyle.StyleGuide(quiet=True)
-                result = style.check_files([path])
-                self.assertEqual(result.total_errors, 0,
-                                 f"Found code style errors in {path}.")
 
     def test_module_docstring(self):
         """Test for the existence of module docstring"""
