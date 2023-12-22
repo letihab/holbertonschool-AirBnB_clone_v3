@@ -2,6 +2,7 @@
 """
 Defines the API routes for handling cities objects.
 """
+
 from flask import abort, jsonify, request
 from models import storage
 from models.user import User
